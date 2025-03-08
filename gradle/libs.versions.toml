@@ -6,6 +6,9 @@ lifecycleRuntimeKtx = "2.6.1"
 constraintlayout = "2.2.1"
 activity_version = "1.9.2"
 recyclerview_version = "1.4.0"
+retrofit_version = "2.11.0"
+okhttp_logging = "4.12.0"
+retrofit_converter_version = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -13,9 +16,11 @@ androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecyc
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "activity_version" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview_version" }
+retrofit-base = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit_version" }
+okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp_logging" }
+retrofit-converter = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit_converter_version" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 

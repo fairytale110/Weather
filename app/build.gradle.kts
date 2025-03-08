@@ -1,7 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
 }
 
 android {
@@ -33,12 +32,8 @@ android {
         jvmTarget = "11"
     }
     buildFeatures {
-        compose = true
-    }
-    dataBinding {
-        viewBinding {
-            enable = true
-        }
+        buildConfig = true
+        dataBinding = true
     }
 }
 
@@ -48,4 +43,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.retrofit.base)
+    implementation(libs.retrofit.converter)
+    implementation(libs.okhttp.logging)
 }

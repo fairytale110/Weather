@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.WeatherDemo" parent="android:Theme.Material.NoActionBar" >
-        <item name="android:windowBackground">@android:color/background_light</item>
+    <style name="Theme.WeatherDemo" parent="Theme.AppCompat.Light.NoActionBar" >
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:forceDarkAllowed">false</item>
     </style>
 </resources>
