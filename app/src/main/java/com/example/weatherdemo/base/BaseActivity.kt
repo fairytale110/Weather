@@ -1,7 +1,9 @@
 package com.example.weatherdemo.base
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
