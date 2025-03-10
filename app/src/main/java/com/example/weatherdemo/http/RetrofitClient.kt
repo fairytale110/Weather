@@ -13,7 +13,6 @@ open class RetrofitClient {
         val client = RetrofitClient();
         val apiService: ApiServer
             get() = client.getService();
-
     }
 
     private val API_HOST = "https://api.open-meteo.com";
@@ -27,7 +26,6 @@ open class RetrofitClient {
         builder.build()
     }
 
-    //
     private fun getHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val logging = HttpLoggingInterceptor()
         if (BuildConfig.DEBUG) {
@@ -49,5 +47,4 @@ open class RetrofitClient {
         }
         return apiService!!;
     }
-
 }

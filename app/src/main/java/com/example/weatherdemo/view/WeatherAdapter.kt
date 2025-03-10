@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.weatherdemo.R
 import com.example.weatherdemo.bean.Weather
-import androidx.core.graphics.toColorInt
 import com.example.weatherdemo.utils.weatherDayOfMonth
 import com.example.weatherdemo.utils.weatherHour
 

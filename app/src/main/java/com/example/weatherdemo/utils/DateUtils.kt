@@ -6,8 +6,9 @@ import java.time.format.DateTimeFormatter
 
 open class DateUtils {
     companion object {
-         val FORMAT_YYYY_MM_DD_T_HH_MM = "yyyy-MM-dd'T'HH:mm"
-         fun getDayOfMonth(dateStr: String, format: String): String {
+        val FORMAT_YYYY_MM_DD_T_HH_MM = "yyyy-MM-dd'T'HH:mm"
+
+        fun getDayOfMonth(dateStr: String, format: String): String {
              try {
                  val dateFormat = DateTimeFormatter.ofPattern(format);
                  val dateTime = LocalDateTime.parse(dateStr, dateFormat);
