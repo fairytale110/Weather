@@ -1,7 +1,15 @@
 # Weather
 CodingTest
 
+# 预览
+<img src="https://github.com/fairytale110/Weather/blob/main/apk/Screenshot_20250310_101220.png?raw=true" alt="drawing" width="200"/>
+
+
+<img src="https://github.com/user-attachments/assets/de22761a-1584-49cd-9543-9c30e38ec270" alt="drawing" width="400"/>
+
 # 开发环境
+
+<img src="https://github.com/user-attachments/assets/85e6a968-836e-4cd2-8984-013ae18b04f1" alt="drawing" width="200"/>
 
 # 功能拆分
 - 线性图表显示温度曲线
@@ -25,3 +33,7 @@ CodingTest
 - 点击曲线可以根据点位弹窗查看对应的时间和温度
 - 滑动可以刷新弹窗位置和数据
 - 双指可以缩放，同时更新坐标刻度缩放比例
+
+# TODO
+- 缩放优化
+- tap to show pop detail
