@@ -4,6 +4,9 @@ CodingTest
 # 预览
 <img src="https://github.com/fairytale110/Weather/blob/main/apk/Screenshot_20250310_101220.png?raw=true" alt="drawing" width="200"/>
 
+
+<img src="https://github.com/user-attachments/assets/de22761a-1584-49cd-9543-9c30e38ec270" alt="drawing" width="400"/>
+
 # 开发环境
 
 <img src="https://github.com/user-attachments/assets/85e6a968-836e-4cd2-8984-013ae18b04f1" alt="drawing" width="200"/>
