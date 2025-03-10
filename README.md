@@ -6,6 +6,8 @@ CodingTest
 
 # 开发环境
 
+<img src="https://github.com/user-attachments/assets/85e6a968-836e-4cd2-8984-013ae18b04f1" alt="drawing" width="200"/>
+
 # 功能拆分
 - 线性图表显示温度曲线
 - list显示小时温度
