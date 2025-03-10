@@ -139,12 +139,20 @@ class MainActivity : BaseActivity<LayoutMainBinding, MainViewModel>() {
         mViewBinding.textStatus?.visibility = View.VISIBLE;
         mViewBinding.textStatus?.setOnClickListener(null)
 
+        if (!isLocationServiceEnable()) {
+            mViewBinding.refreshLayout.isRefreshing = false;
+            mViewBinding.textStatus?.text = getText(R.string.loading_failed_gps);
+            mViewBinding.textStatus?.visibility = View.VISIBLE;
+            mViewBinding.textStatus?.setOnClickListener {
+                loadProviders();
+            }
+            return;
+        }
+
         val providers = locationManager.getProviders(true)
         if (providers.contains(LocationManager.NETWORK_PROVIDER)) {
-            //如果是Network
             locationProvider = LocationManager.NETWORK_PROVIDER
-        } else if (providers.contains(LocationManager.GPS_PROVIDER)) {
-            //如果是GPS
+        } else {
             locationProvider = LocationManager.GPS_PROVIDER
         }
         val location = locationManager.getLastKnownLocation(locationProvider)
@@ -173,4 +181,10 @@ class MainActivity : BaseActivity<LayoutMainBinding, MainViewModel>() {
         getLocation();
     }
 
+    private fun isLocationServiceEnable(): Boolean {
+        val gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+        val network = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+        //有一个开启就可
+        return gps || network
+    }
 }

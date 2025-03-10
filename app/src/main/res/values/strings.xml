@@ -3,4 +3,5 @@
     <string name="loading">Loading</string>
     <string name="loading_failed">Loading failed, pull to reload</string>
     <string name="loading_failed_permission">Loading failed, tap to set permission</string>
+    <string name="loading_failed_gps">Loading failed, open GPS first</string>
 </resources>
