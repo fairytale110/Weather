@@ -2,10 +2,13 @@ package com.example.weatherdemo.ui
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+import android.net.Uri
+import android.os.Build
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresPermission
@@ -51,6 +54,8 @@ class MainActivity : BaseActivity<LayoutMainBinding, MainViewModel>() {
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mViewBinding.recyclerView.adapter = adater;
         mViewBinding.refreshLayout.setOnRefreshListener {
+            mViewBinding.textStatus?.text = getText(R.string.loading);
+            mViewBinding.textStatus?.setOnClickListener(null);
             mViewModel.getWeather(latitude, longitude);
         }
         mViewBinding.refreshLayout.isRefreshing = true;
@@ -59,7 +64,7 @@ class MainActivity : BaseActivity<LayoutMainBinding, MainViewModel>() {
 
     override fun initData() {
         super.initData()
-        getLocation()
+        getLocation();
         mViewModel.weatherData.observe(this, { data: NetResponse<Weather?> ->
             // dismiss loading
             mViewBinding.refreshLayout.isRefreshing = false;
@@ -72,6 +77,9 @@ class MainActivity : BaseActivity<LayoutMainBinding, MainViewModel>() {
                 return@observe
             }
             // handle request error
+            mViewBinding.textStatus?.text = getText(R.string.loading_failed);
+            mViewBinding.textStatus?.visibility = View.VISIBLE;
+            mViewBinding.textStatus?.setOnClickListener(null);
         });
     }
 
@@ -114,12 +122,23 @@ class MainActivity : BaseActivity<LayoutMainBinding, MainViewModel>() {
                 }
             } else {
                 Toast.makeText(this, "Need location permission first", Toast.LENGTH_LONG).show()
+                mViewBinding.refreshLayout.isRefreshing = false;
+                mViewBinding.textStatus?.text = getText(R.string.loading_failed_permission);
+                mViewBinding.textStatus?.visibility = View.VISIBLE;
+                mViewBinding.textStatus?.setOnClickListener {
+                    toSelfSetting(this@MainActivity);
+                }
             }
         }
     }
 
     @RequiresPermission(allOf = [Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION])
     private fun loadProviders() {
+        mViewBinding.refreshLayout.isRefreshing = true;
+        mViewBinding.textStatus?.text = getText(R.string.loading);
+        mViewBinding.textStatus?.visibility = View.VISIBLE;
+        mViewBinding.textStatus?.setOnClickListener(null)
+
         val providers = locationManager.getProviders(true)
         if (providers.contains(LocationManager.NETWORK_PROVIDER)) {
             //如果是Network
@@ -140,4 +159,18 @@ class MainActivity : BaseActivity<LayoutMainBinding, MainViewModel>() {
             )
         }
     }
+
+    fun toSelfSetting(context: Context) {
+        val mIntent = Intent()
+        mIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        mIntent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS")
+        mIntent.setData(Uri.fromParts("package", context.packageName, null))
+        context.startActivity(mIntent)
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        getLocation();
+    }
+
 }
