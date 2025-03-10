@@ -19,13 +19,14 @@ data class Weather(
     override fun toString(): String {
         return Gson().toJson(this)
     }
+
+
+    data class Hourly(
+        var time: ArrayList<String>? = arrayListOf(),
+        var temperature_2m: ArrayList<Double>? = arrayListOf()
+    )
+
+    data class HourlyUnits(
+        var temperature_2m: String? = "°C"
+    )
 }
-
-data class Hourly(
-    var time: ArrayList<String>? = arrayListOf(),
-    var temperature_2m: ArrayList<Double>? = arrayListOf()
-)
-
-data class HourlyUnits(
-    var temperature_2m: String? = "°C"
-)
