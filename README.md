@@ -1,6 +1,9 @@
 # Weather
 CodingTest
 
+# 预览
+<img src="https://github.com/fairytale110/Weather/blob/main/apk/Screenshot_20250310_101220.png?raw=true" alt="drawing" width="200"/>
+
 # 开发环境
 
 # 功能拆分
