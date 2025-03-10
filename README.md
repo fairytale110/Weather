@@ -36,3 +36,4 @@ CodingTest
 
 # TODO
 - 缩放优化
+- tap to show pop detail
